@@ -1,7 +1,7 @@
 # Online Mininalize Shop
 
 ## Стек 
-- Python, HTML, CSS, JavaScript, Boostrap, Flask, SQLAlchemy, MySQL
+- Python, HTML, CSS, JavaScript, Bootstrap, Flask, SQLAlchemy, MySQL
 
 ## Задачи по ТЗ
 - [x] Создать базу данных
