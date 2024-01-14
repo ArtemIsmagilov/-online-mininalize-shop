@@ -1,0 +1,66 @@
+img {
+    width: 80%;
+    height: 500px;
+    border-radius: 1%;
+    object-fit: contain;
+}
+
+.warehouse {
+  transition: transform .5s;
+}
+
+.warehouse:hover {
+    transform: scale(1.1);
+}
+
+.product-col {
+    transition: transform .5s;
+}
+
+.product-col:hover {
+    transform: scale(1.005);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+li {
+    transition: transform .2s;
+}
+
+li:hover {
+    transform: scale(1.05);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.step-img {
+   width: 500px;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+    background-color: darkgray;
+    border-radius: 50%;
+}
+
+
+.pagination-page-info {
+    padding: .6em;
+    padding-left: 0;
+    width: 40em;
+    margin: .5em;
+    margin-left: 0;
+    font-size: 12px;
+}
+.pagination-page-info b {
+    color: black;
+    background: #6aa6ed;
+    padding-left: 2px;
+    padding: .1em .25em;
+    font-size: 150%;
+}
+
+.search_inventor {
+    position: sticky;
+    top: 20px;
+}

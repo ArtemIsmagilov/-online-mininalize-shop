@@ -1,0 +1,152 @@
+{% extends "layout.html" %}
+
+{% block title %}Products{% endblock %}
+{% block content %}
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Модальное окно товара</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Название</label>
+                        <input name="product_name" type="text" class="form-control" id="recipient-name" maxlength="50"
+                               required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message-text" class="col-form-label">Описание</label>
+                        <textarea name="product_description" class="form-control" id="message-text" rows="3"
+                                  maxlength="255" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="col-form-label">Цена</label>
+                        <input name="product_price" type="number" class="form-control" id="price" min="0" max="9999999"
+                               step="0.01" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                        <input type="submit" class="btn btn-primary" value="Добавить">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel2">Модальное окно локации</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <div class="mb-3">
+                        <label for="location-name" class="col-form-label">Название</label>
+                        <input name="location_name" type="text" class="form-control" id="location-name" maxlength="50"
+                               required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                        <input type="submit" class="btn btn-primary" value="Добавить">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ pagination.info }}
+
+<div style="margin: 10px;">
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped-columns">
+                <thead>
+                <tr class="col">
+                    <th scope="col">ID<br><a href="{{ url_for('inventories.id_desc', **request.args) }}">↓</a><a
+                            href="{{ url_for('inventories.id_asc', **request.args) }}">↑</a>
+                    </th>
+                    <th scope="col">Название<br><a href="{{ url_for('inventories.name_desc', **request.args) }}">↓</a><a
+                            href="{{ url_for('inventories.name_asc', **request.args) }}">↑</a>
+                    </th>
+                    <th scope="col">Описание<br><a href="{{ url_for('inventories.description_desc', **request.args) }}">↓</a><a
+                            href="{{ url_for('inventories.description_asc', **request.args) }}">↑</a>
+                    </th>
+                    <th scope="col">Цена<br><a href="{{ url_for('inventories.price_desc', **request.args) }}">↓</a><a
+                            href="{{ url_for('inventories.price_asc', **request.args) }}">↑</a>
+                    </th>
+                    <th scope="col">Локация<br><a
+                            href="{{ url_for('inventories.location_desc', **request.args) }}">↓</a><a
+                            href="{{ url_for('inventories.location_asc', **request.args) }}">↑</a>
+                    </th>
+                    <th scope="col">Количество<br><a
+                            href="{{ url_for('inventories.quantity_desc', **request.args) }}">↓</a><a
+                            href="{{ url_for('inventories.quantity_asc', **request.args) }}">↑</a>
+                    </th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for id, name, description, price, location, quantity in inventories %}
+                <tr>
+                    <th scope="row">{{ id }}<!--{{ loop.index + pagination.skip }}--></th>
+                    <td>{{ name }}</td>
+                    <td>{{ description }}</td>
+                    <td>{{ price }}</td>
+
+                    <td>{{ location }}</td>
+
+                    <td id="row_{{ id }}">{{ quantity }}</td>
+
+                    <td>
+                        <button class="badge rounded-pill text-bg-primary warehouse" type="button"
+                                onclick="increment_inventory('row_{{ id }}')">Добавить на склад
+                        </button>
+                        <button class="badge rounded-pill text-bg-info warehouse" type="button"
+                                onclick="decrement_inventory('row_{{ id }}')">Удалить со склада
+                        </button>
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col col-lg-2">
+            <div class="search_inventor">
+                <form class="w-100 me-3" role="search" method="GET">
+                    <input type="search" name="q" class="form-control" placeholder="Search..." aria-label="Search"
+                           {% if q %} value="{{ q }}" {% endif %}
+                    >
+                </form>
+                <br>
+                <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            data-bs-whatever="@mdo">Добавить товар
+                    </button>
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                            data-bs-whatever="@fat">Добавить локацию
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        {{ pagination.links }}
+    </div>
+
+    {% endblock %}

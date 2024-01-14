@@ -1,0 +1,248 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+
+<div class="container my-5">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+        <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+            <h1 class="display-4 fw-bold lh-1 text-body-emphasis"><font style="vertical-align: inherit;"><font
+                    style="vertical-align: inherit;">Материалы изготовлены по стандартам международного качества</font></font>
+            </h1>
+            <p class="lead"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Наша компания
+                — это 120 магазинов во всем мире. Мы предлагаем своим клиентам большой выбор качественных товаров,
+                доступные большинству покупателей цены и высокий уровень обслуживания. Во всех магазинах представлен
+                широкий ассортимент товаров, включая строительные материалы, строительный инструмент, кухни, напольные
+                покрытия и многое другое.
+            </font></font></p>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+                <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold"><font
+                        style="vertical-align: inherit;"><font style="vertical-align: inherit;">Открытые вакансии</font></font>
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4"><font
+                        style="vertical-align: inherit;"><font style="vertical-align: inherit;">Заказать
+                    звонок</font></font></button>
+            </div>
+        </div>
+        <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg" style="margin: 1px;">
+
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h3>Выручка в год ₽
+                        <span id="count_income_id"></span>
+                        млн
+                    </h3>
+                </li>
+                <li class="list-group-item">
+                    <h3>Количество сотрудников
+                        <span id="count_employ_id"></span>
+                    </h3>
+                </li>
+                <li class="list-group-item">
+                    <h3>Количество вакансий
+                        <span id="count_vacancy_id"></span>
+                    </h3>
+                </li>
+                <li class="list-group-item">
+                    <h3>Нам доверяют
+                        <span id="count_trust_id"></span>
+                        компаний
+                    </h3>
+                </li>
+                <li class="list-group-item">
+                    <h3>Продано товаров
+                        <span id="count_sale_id"></span>
+                        млн
+                    </h3>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</div>
+
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <figure class="sign">
+                <figcaption class="d-flex justify-content-center"><h1>Делаем товары на заказ</h1></figcaption>
+                <img src="/static/imgs/seller.png" class="d-block w-100" alt="...">
+            </figure>
+        </div>
+        <div class="carousel-item">
+            <figure class="sign">
+                <figcaption class="d-flex justify-content-center"><h1>Доставка товаров на дом</h1></figcaption>
+                <img src="static/imgs/online_buy.png" class="d-block w-100" alt="...">
+            </figure>
+        </div>
+        <div class="carousel-item">
+            <figure class="sign">
+                <figcaption class="d-flex justify-content-center"><h1>Скидки до 50%</h1></figcaption>
+                <img src="/static/imgs/sales.png" class="d-block w-100" alt="...">
+            </figure>
+        </div>
+        <div class="carousel-item">
+            <figure class="sign">
+                <figcaption class="d-flex justify-content-center"><h1>Гарантия качества</h1></figcaption>
+                <img src="/static/imgs/mark.png" class="d-block w-100" alt="...">
+            </figure>
+        </div>
+        <div class="carousel-item">
+            <figure class="sign">
+                <figcaption class="d-flex justify-content-center"><h1>Компании более 10 лет</h1></figcaption>
+                <img src="/static/imgs/stonks.png" class="d-block w-100" alt="...">
+            </figure>
+        </div>
+        <div class="carousel-item">
+            <figure class="sign">
+                <figcaption class="d-flex justify-content-center"><h1>Работаем со странами СНГ, Китаем, США и
+                    Европой</h1>
+                </figcaption>
+                <img src="/static/imgs/world.png" class="d-block w-100" alt="...">
+
+            </figure>
+        </div>
+    </div>
+
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<hr class="featurette-divider">
+
+<div class="container marketing">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <h2 class="fw-normal">Быстрое и качественное производство</h2>
+            <p>Весь ассортимент продается официально. У нас есть необходимые сертификаты, документы, договоры.</p>
+            <img src="static/imgs/processing.png">
+        </div>
+        <div class="col-lg-4">
+            <h2 class="fw-normal">Грамотно налаженные процессы</h2>
+            <p>Широкий выбор, больше 50 000 наименований — все, что потребуется для стройки и ремонта, создания уюта в
+                доме.</p>
+            <img src="static/imgs/production.png">
+
+        </div>
+        <div class="col-lg-4">
+            <h2 class="fw-normal">Клиенты нами довольны</h2>
+            <p>Широкий ассортимент товаров – это гарантия того, что каждый наш покупатель сможет подобрать оптимальное
+                решение для реализации своего проекта.</p>
+            <img src="static/imgs/happy_client.png">
+
+        </div>
+    </div>
+
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Выбираем товар<span class="text-body-secondary"> (select best product)</span>
+            </h2>
+            <p class="lead">Широкий выбор, больше 50 000 наименований — все, что потребуется для стройки и ремонта,
+                создания уюта в доме.
+                Вы найдете нужные товары легко: в каталоге есть отбор по всем нужным параметрам.</p>
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item list-group-item-action">стройматериалы, инструменты и электротовары</li>
+                <li class="list-group-item list-group-item-action">сантехническую продукцию и все для организации
+                    водоснабжения;
+                </li>
+                <li class="list-group-item list-group-item-action">столярные изделия и скобяные изделия</li>
+                <li class="list-group-item list-group-item-action">различные виды напольного покрытия и плитки</li>
+                <li class="list-group-item list-group-item-action">краску, декор и товары для хранения</li>
+                <li class="list-group-item list-group-item-action">все для обустройства кухни</li>
+                <li class="list-group-item list-group-item-action">товары для организации освещения дома и придомового
+                    участка
+                </li>
+                <li class="list-group-item list-group-item-action">все для сада и огорода.</li>
+            </ol>
+        </div>
+        <div class="col-md-5">
+            <img class="step-img" src="static/imgs/select_product.png">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading fw-normal lh-1">Оформляем доставку или самовызов<span
+                    class="text-body-secondary"> (fast delivery)</span></h2>
+            <p class="lead">Бесплатный самовывоз из магазинов сети. Доставка странам СНГ, Европы, Китая и США</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img class="step-img" src="static/imgs/delivery.png">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading fw-normal lh-1">Реализуем ваши проекты<span class="text-body-secondary"> (check, realization, build, continue projects)</span>
+            </h2>
+            <p class="lead">Дизайн планирующегося интерьера квартиры, дома или офиса при проведении ремонта – это
+                основа, в соответствие с которой и производятся все дальнейшие работы. Аналогично построению чертежа при
+                проектировании любого нового здания и сооружения, преобразования помещения внутри требуют тщательной и
+                проработанной планировки.
+
+                Доверять данную работу следует профессионалам, которые проработают как практическую (электропроводка и
+                водные трубы, кабеля, утепление, перепланировка), так и эстетическую сторону вопроса, и в результате
+                получится красивое, практичное и удобное жилище в современном стиле. Если у Вас на руках уже есть
+                готовый дизайнерский проект, мы можем воплотить его в жизнь</p>
+        </div>
+        <div class="col-md-5">
+            <img class="step-img" src="static/imgs/accept.png">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+</div>
+
+<div class="album py-5 bg-body-tertiary">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for product in products %}
+            <div class="col product-col">
+
+                <div class="card h-100 ">
+                    <img class="bd-placeholder-img card-img-top rounded-start product_image" width="100%"
+                         height="225"
+                         src="/static/imgs/{{ product.name }}.png" role="img" aria-label="Placeholder: Thumbnail"
+                         preserveAspectRatio="xMidYMid slice" focusable="false"
+                         onerror="this.onerror=null;this.src='static/imgs/no_picture.png';">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-outline-secondary">🛒</button>
+                                <button type="button" class="btn btn-sm btn-outline-secondary">💳</button>
+                            </div>
+                            <small class="text-body-secondary">₽{{ product.price }}</small>
+                        </div>
+                        <p class="card-text">{{ product.name }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        load_preview_digits();
+        short_long_cart_text();
+    };
+</script>
+
+{% endblock %}
