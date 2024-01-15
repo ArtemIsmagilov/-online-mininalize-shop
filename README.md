@@ -56,7 +56,7 @@
 - Хороший шаблон проекта Django https://github.com/scb-am/abz_agency
 
 ## Быть внимательнее
-- `/static` и 'static' в HTML возвращают разные URL при запросе конечных точек Bluebrint. 
+- `/static` и `static` в HTML возвращают разные URL при запросе конечных точек Bluebrint. 
 
 ## Мои выводы
 - Как оказалось, SQLAlchemy ORM намного сложнее чем Core. Видимо orm нужно использовать для отслеживания и
