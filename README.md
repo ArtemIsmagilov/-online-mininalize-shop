@@ -1,4 +1,4 @@
-# Online Mininalize Shop
+# Online Minimalize Shop
 
 ## Стек 
 - Python, HTML, CSS, JavaScript, Bootstrap, Flask, SQLAlchemy, MySQL
