@@ -13,10 +13,8 @@ function increment_inventory(row_id) {
     const quantity = document.getElementById(row_id);
     var counter = parseInt(quantity.innerHTML);
     if (counter < 999999) {
-        quantity.innerHTML = counter - 1;
+        quantity.innerHTML = counter + 1;
     }
-
-    quantity.innerHTML = counter + 1;
 }
 
 function decrement_inventory(row_id) {
