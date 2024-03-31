@@ -1,7 +1,8 @@
-Flask==3.0.0
-flask-paginate==2023.10.24
-mysqlclient==2.2.1
-python-dotenv==1.0.0
-SQLAlchemy==2.0.25
-Cython==3.0.8
+Flask==3.0.2
+flask-paginate==2024.3.28
+mysqlclient==2.2.4
+python-dotenv==1.0.1
+SQLAlchemy==2.0.29
+Cython==3.0.10
 Flask-WTF==1.2.1
+ruff==0.3.4

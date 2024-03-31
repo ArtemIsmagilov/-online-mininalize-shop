@@ -1,8 +1,6 @@
 import sqlalchemy as sa, re
 from typing import Callable
-from flask import (
-    request, flash, current_app, render_template
-)
+from flask import request, flash, current_app, render_template
 from flask_paginate import get_page_args, Pagination
 
 from ..sql_app.databse import LocalSession
@@ -38,31 +36,37 @@ def get_pagination(**kwargs):
         show_single_page=show_single_page_or_not(),
         prev_rel="prev",
         next_rel="next prefetch",
-        **kwargs
+        **kwargs,
     )
 
 
 def load_form_inventories(session: sa.orm.Session):
-    if request.form.get('location_name'):
-        location_name = request.form['location_name']
+    if request.form.get("location_name"):
+        location_name = request.form["location_name"]
         crud.create_location(session, location_name)
-        flash('Вы успешно создали локацию', 'success')
+        flash("Вы успешно создали локацию", "success")
     else:
-        product_name = request.form['product_name']
-        product_description = request.form['product_description']
-        product_price = request.form['product_price']
-        crud.create_product(session, product_name, product_description, float(product_price))
-        flash('Вы успешно создали продукт', 'success')
+        product_name = request.form["product_name"]
+        product_description = request.form["product_description"]
+        product_price = request.form["product_price"]
+        crud.create_product(
+            session, product_name, product_description, float(product_price)
+        )
+        flash("Вы успешно создали продукт", "success")
 
 
 def show_all_inventories(sorting: Callable, by_column: sa.Column):
     with LocalSession.begin() as session:
-        if request.method == 'POST':
+        if request.method == "POST":
             load_form_inventories(session)
-        q = request.args.get('q', '').strip()
+        q = request.args.get("q", "").strip()
         if q:
             search = True
-            total = crud.find_counts_inventories(session, q) if re.match(r'[а-яА-Я0-9 ]', q) else 0
+            total = (
+                crud.find_counts_inventories(session, q)
+                if re.match(r"[а-яА-Я0-9 ]", q)
+                else 0
+            )
 
         else:
             search = False
@@ -87,7 +91,7 @@ def show_all_inventories(sorting: Callable, by_column: sa.Column):
             )
 
         result = render_template(
-            'inventories.html',
+            "inventories.html",
             inventories=all_inventories,
             pagination=pagination,
             q=q,

@@ -12,9 +12,11 @@ def create_app():
         return show_home()
 
     from .sql_app import cli_commands
+
     cli_commands.init_app(app)
 
     from .inventories_app import inventories_bp
+
     app.register_blueprint(inventories_bp.bp)
 
     csrf.init_app(app)

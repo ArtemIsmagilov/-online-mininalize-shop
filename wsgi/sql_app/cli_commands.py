@@ -9,15 +9,15 @@ def init_app(app: current_app):
     app.cli.add_command(drop_db_command)
 
 
-@click.command('init-db')
+@click.command("init-db")
 def init_db_command():
     "Run initialize database"
     Base.metadata.create_all(engine)
-    click.echo('Initialized the database.')
+    click.echo("Initialized the database.")
 
 
-@click.command('drop-db')
+@click.command("drop-db")
 def drop_db_command():
     "Run drop database"
     Base.metadata.drop_all(engine)
-    click.echo('Dropped the database.')
+    click.echo("Dropped the database.")

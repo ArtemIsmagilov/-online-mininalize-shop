@@ -10,4 +10,3 @@ LocalSession = sessionmaker(engine)
 
 class Base(DeclarativeBase):
     pass
-
